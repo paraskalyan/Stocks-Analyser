@@ -19,9 +19,15 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <h1 className="uppercase font-semibold text-[10vh]">
+      <h1 className="uppercase font-semibold text-[10vh] max-sm:hidden">
         See the signal. skip the noise
       </h1>
+      <div className=" w-full mb-3 px-3 flex flex-col items-center">
+        <img width={200} src="/logo-main.png" />
+        <h1 className={`font-medium text-[1rem] max-sm:block hidden`}>
+          See the signal. Skip the noise
+        </h1>
+      </div>
     </div>
   );
 }

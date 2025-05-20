@@ -1,6 +1,6 @@
 import withFlowbiteReact from "flowbite-react/plugin/nextjs";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = { devIndicators: false };
 
 export default withFlowbiteReact(nextConfig);
