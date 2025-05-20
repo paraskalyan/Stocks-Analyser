@@ -19,8 +19,8 @@ export default function CommandBox() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const API_KEY = process.env.ALPHA_API_KEY;
-  const FINNHUB_API_KEY = process.env.FINNHUB_API_KEY;
+  const API_KEY = "SD75SY6C5VJ3H4S5";
+  const FINNHUB_API_KEY = "cn5jo4pr01qocjm1ujcgcn5jo4pr01qocjm1ujd0";
 
   const goToChart = (symbol) => {
     router.push(`/chart?symbol=${symbol}`);
@@ -39,6 +39,7 @@ export default function CommandBox() {
 
     try {
       setLoading(true);
+      console.log(keyword);
       const res = await axios.get("https://www.alphavantage.co/query", {
         params: {
           function: "SYMBOL_SEARCH",
@@ -46,9 +47,11 @@ export default function CommandBox() {
           apikey: API_KEY,
         },
       });
+      console.log(res);
 
       if (res.data) {
         const matches = res.data.bestMatches;
+        console.log(matches);
         const enrichedMatches = await Promise.all(
           matches.map(async (item) => {
             const symbol = item["1. symbol"];
